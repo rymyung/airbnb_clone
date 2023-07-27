@@ -1,13 +1,14 @@
 from django.contrib import admin
-from .models import User
 from django.contrib.auth.admin import UserAdmin
+
+from .models import User
 
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     fieldsets = (
         (
-            "Profile", 
+            "Profile",
             {
                 "fields": ("username", "password", "name", "email", "is_host"),
                 "classes": ("wide",),
