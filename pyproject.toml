@@ -9,8 +9,21 @@ packages = [{include = "airbnb_clone"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 django = "^4.2.3"
+pre-commit = "^3.3.3"
+ruff = "^0.0.280"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 119
+select = [
+    "I",
+    "PLC",
+    "PLE",
+    "E",
+    "F",
+    "UP",
+]
