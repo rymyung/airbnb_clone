@@ -29,3 +29,6 @@ select = [
     "UP",
     "Q",
 ]
+
+[tool.ruff.per-file-ignores]
+"*/migrations/*.py" = ["E501"]
