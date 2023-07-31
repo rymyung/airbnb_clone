@@ -8,8 +8,14 @@ class Photo(CommonModel):
     file = models.ImageField()
     description = models.CharField(max_length=140)
 
-    room = models.ForeignKey("rooms.Room", null=True, blank=True, on_delete=models.CASCADE)
-    experience = models.ForeignKey("experiences.Experience", null=True, blank=True, on_delete=models.CASCADE)
+    room = models.ForeignKey("rooms.Room", null=True, blank=True, on_delete=models.CASCADE, related_name="photos")
+    experience = models.ForeignKey(
+        "experiences.Experience",
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="photos",
+    )
 
     def __str__(self) -> str:
         return "Photo File"
