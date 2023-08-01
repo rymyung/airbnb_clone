@@ -3,8 +3,18 @@ from django.contrib import admin
 from .models import Amenity, Room
 
 
+@admin.action(description="Set all prices to 0")
+def rest_prices(model_admin, request, rooms):
+    for room in rooms.all():
+        room.price = 0
+        room.save()
+
+
 @admin.register(Room)
 class RoomAdmin(admin.ModelAdmin):
+
+    actions = (rest_prices,)
+
     list_display = (
         "name",
         "price",
