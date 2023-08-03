@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_204_NO_CONTENT
 
 from .models import Category
-from .seriealizers import CategorySerializer
+from .serializers import CategorySerializer
 
 
 @api_view(["GET", "POST"])
