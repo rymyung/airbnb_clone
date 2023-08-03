@@ -60,6 +60,21 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "djangorestframework"
+version = "3.14.0"
+description = "Web APIs for Django, made easy."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "djangorestframework-3.14.0-py3-none-any.whl", hash = "sha256:eb63f58c9f218e1a7d064d17a70751f528ed4e1d35547fdade9aaf4cd103fd08"},
+    {file = "djangorestframework-3.14.0.tar.gz", hash = "sha256:579a333e6256b09489cbe0a067e66abe55c6595d8926be6b99423786334350c8"},
+]
+
+[package.dependencies]
+django = ">=3.0"
+pytz = "*"
+
+[[package]]
 name = "filelock"
 version = "3.12.2"
 description = "A platform independent file lock."
@@ -203,6 +218,17 @@ identify = ">=1.0.0"
 nodeenv = ">=0.11.1"
 pyyaml = ">=5.1"
 virtualenv = ">=20.10.0"
+
+[[package]]
+name = "pytz"
+version = "2023.3"
+description = "World timezone definitions, modern and historical"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pytz-2023.3-py2.py3-none-any.whl", hash = "sha256:a151b3abb88eda1d4e34a9814df37de2a80e301e68ba0fd856fb9b46bfbbbffb"},
+    {file = "pytz-2023.3.tar.gz", hash = "sha256:1d8ce29db189191fb55338ee6d0387d82ab59f3d00eac103412d64e0ebd0c588"},
+]
 
 [[package]]
 name = "pyyaml"
@@ -356,4 +382,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "84509cc6f7f6c0b489f92919e76c6feb6f364e68b89b300dd197be3fc5bbd1c4"
+content-hash = "5ebc7f04a2960a15b3404cb8016e7770b4267aa4ded11905709a212a63d92318"
