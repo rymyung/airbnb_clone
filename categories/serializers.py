@@ -7,6 +7,6 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        # fields = ("name", "kind",)
+        fields = ("name", "kind",)
         # fields = "__all__"
-        exclude = ("updated_at",)
+        # exclude = ("updated_at",)
