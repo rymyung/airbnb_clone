@@ -35,14 +35,14 @@ class Room(CommonModel):
     def __str__(self) -> str:
         return self.name
 
-    def rating(self) -> float|str:
+    def rating(self) -> float:
 
         average_ratings = self.reviews.aggregate(Avg("rating"))["rating__avg"]
 
         if average_ratings:
             return round(average_ratings, 2)
         else:
-            return "No Review"
+            return 0
 
 
 class Amenity(CommonModel):
