@@ -3,7 +3,7 @@ from django.db import transaction
 from rest_framework.exceptions import NotAuthenticated, NotFound, ParseError, PermissionDenied
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
-from rest_framework.status import HTTP_204_NO_CONTENT
+from rest_framework.status import HTTP_204_NO_CONTENT, HTTP_400_BAD_REQUEST
 from rest_framework.views import APIView
 
 from categories.models import Category
@@ -13,16 +13,6 @@ from reviews.serializers import ReviewSerializer
 from .models import Amenity, Room
 from .serializers import AmenitySerializer, RoomDetailSerializer, RoomListSerializer
 
-"""
-GET /api/v1/tweets                          o
-POST /api/v1/tweets                         o
-GET /api/v1/tweets/<int:pk>                 o
-PUT /api/v1/tweets/<int:pk>                 x
-DELETE /api/v1/tweets/<int:pk>              o
-GET /api/v1/users                           o
-GET /api/v1/users/<int:pk>                  o
-GET /api/v1/users/<int:pk>/tweets           o
-"""
 
 class Amenities(APIView):
 
@@ -38,7 +28,7 @@ class Amenities(APIView):
             amenity = serializer.save()
             return Response(AmenitySerializer(amenity).data)
         else:
-            return Response(serializer.errors)
+            return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
 
 
 class AmenityDetail(APIView):
@@ -108,7 +98,7 @@ class Rooms(APIView):
             except Exception:
                 raise ParseError("Amenity not found.")
         else:
-            return Response(serializer.errors)
+            return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
 
 
 class RoomDetail(APIView):
