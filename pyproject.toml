@@ -15,6 +15,7 @@ pillow = "^10.0.0"
 djangorestframework = "^3.14.0"
 pyjwt = "^2.8.0"
 django-environ = "^0.10.0"
+strawberry-graphql = {extras = ["debug-server"], version = "^0.203.3"}
 
 
 [build-system]
